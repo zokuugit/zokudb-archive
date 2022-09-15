@@ -26,7 +26,7 @@ This will create a new (or existing) database file with a directory `./zokuru/da
 This package is more or less similar to [quick.db](https://npmjs.com/package/quick.db), it also supports `set`, `get`, `has`, `fetch`, `delete` methods and so on.
 
 # [☁️] Install this package
-* I don't know how to register this package to npm yet, let me know if you know how
+* I don't know how to register this package to npm yet, let me know if you know how. [​ㅤㅤㅤㅤㅤ](https://npmjs.com/package/croxydb)
 ```js
 $ npm i https://github.com/zokuru/database.git
 ```
