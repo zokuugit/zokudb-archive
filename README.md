@@ -26,8 +26,8 @@ This will create a new (or existing) database file with a directory `./zokuru/da
 And, here is a list of methods that can be used on `ZokuDB`:
 [null]
 
-# 
-### [☁️] This `README.md` will be updated soon
+# [☁️] Install this package
+* I don't know how to register this package to npm yet, let me know if you know how
 ```js
 npm i https://github.com/zokuru/database.git
 ```
