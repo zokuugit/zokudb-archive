@@ -2,7 +2,7 @@ const functions = require("./functions.js");
 const langs = ["en"];
 const fs = require("fs");
 
-class zokudb {
+class ZokuDB {
   constructor(options) {
 
     this.dbName = options["dbName"];
@@ -300,4 +300,4 @@ class zokudb {
 
 }
 
-module.exports = { zokudb };
+module.exports = { ZokuDB };
