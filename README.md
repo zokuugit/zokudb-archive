@@ -28,5 +28,5 @@ This package is more or less similar to [quick.db](https://npmjs.com/package/qui
 # [☁️] Install this package
 * I don't know how to register this package to npm yet, let me know if you know how
 ```js
-npm i https://github.com/zokuru/database.git
+$ npm i https://github.com/zokuru/database.git
 ```
