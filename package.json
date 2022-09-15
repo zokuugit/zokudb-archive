@@ -1,0 +1,22 @@
+{
+  "name": "@zokuru/database",
+  "version": "1.0.0",
+  "description": "A package born of boredom",
+  "main": "index.js",
+  "keywords": [
+    "json",
+    "jsondb",
+    "db",
+    "database"
+  ],
+  "bundleDependencies": false,
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zokuru/databse.git"
+  },
+  "author": "ZokuruTheLazyPerson",
+  "license": "MIT"
+}
