@@ -1,13 +1,13 @@
 const fs = require("node:fs");
 
-module.exports.set = function (path, value, obj) {
+module.exports.set = function(path, value, obj) {
     var schema = obj;
     var pList = path.split(".");
     var len = pList.length;
-    for(var i = 0; i < len-1; i++) {
+    for (var i = 0; i < len - 1; i++) {
         var elem = pList[`${i}`];
-        if( typeof schema[`${elem}`] !== "object" ) {
-          schema[`${elem}`] = {};
+        if (typeof schema[`${elem}`] !== "object") {
+            schema[`${elem}`] = {};
         }
         schema = schema[`${elem}`];
     }
@@ -15,63 +15,63 @@ module.exports.set = function (path, value, obj) {
 };
 
 module.exports.get = function(obj, ...data) {
-  return data.reduce(function(acc, key) {
-    return acc[`${key}`];
-  }, obj);
+    return data.reduce(function(acc, key) {
+        return acc[`${key}`];
+    }, obj);
 };
 
 module.exports.delete = function(obj, path) {
     if (!obj || !path) {
-      return;
+        return;
     }
     if (typeof path === "string") {
-      path = path.split(".");
+        path = path.split(".");
     }
     for (var i = 0; i < path.length - 1; i++) {
-      obj = obj[path[`${i}`]];
-      if (typeof obj === "undefined") {
-        return;
-      }
+        obj = obj[path[`${i}`]];
+        if (typeof obj === "undefined") {
+            return;
+        }
     }
     delete obj[path.pop()];
 };
 
 module.exports.fetchFiles = function(dbFolder, dbName) {
-    if (!fs.existsSync(dbFolder)){
+    if (!fs.existsSync(dbFolder)) {
         fs.mkdirSync(dbFolder);
-        if(!fs.existsSync(`./${dbFolder}/${dbName}.json`)) {
+        if (!fs.existsSync(`./${dbFolder}/${dbName}.json`)) {
             fs.writeFileSync(`./${dbFolder}/${dbName}.json`, "{}");
             return;
         }
     } else {
-        if(!fs.existsSync(`./${dbFolder}/${dbName}.json`)) {
+        if (!fs.existsSync(`./${dbFolder}/${dbName}.json`)) {
             fs.writeFileSync(`./${dbFolder}/${dbName}.json`, "{}");
         }
     }
 };
 
-module.exports.removeEmptyData = function (obj) {
-  var remove = function(obj) {
-    Object.keys(obj).forEach(function(key) {
-      if (obj[`${key}`] && typeof obj[`${key}`] === "object") { 
-        remove(obj[`${key}`]);
-      } else if (obj[`${key}`] === null || obj[`${key}`]=== "") { 
-        delete obj[`${key}`];
-      }
-      if (typeof obj[`${key}`] === "object" && Object.keys(obj[`${key}`]).length === 0) {
-       delete obj[`${key}`];
-      }
-    });
-  };
+module.exports.removeEmptyData = function(obj) {
+    var remove = function(obj) {
+        Object.keys(obj).forEach(function(key) {
+            if (obj[`${key}`] && typeof obj[`${key}`] === "object") {
+                remove(obj[`${key}`]);
+            } else if (obj[`${key}`] === null || obj[`${key}`] === "") {
+                delete obj[`${key}`];
+            }
+            if (typeof obj[`${key}`] === "object" && Object.keys(obj[`${key}`]).length === 0) {
+                delete obj[`${key}`];
+            }
+        });
+    };
 
-  Object.keys(obj).forEach(function(key) {
-    if (obj[`${key}`] && typeof obj[`${key}`] === "object") {
-      remove(obj[`${key}`]);
-    } else if (obj[`${key}`] === null || obj[`${key}`]=== "") {
-      delete obj[`${key}`];
-    }
-    if (typeof obj[`${key}`] === "object" && Object.keys(obj[`${key}`]).length === 0) {
-      delete obj[`${key}`];
-    }
-  });
+    Object.keys(obj).forEach(function(key) {
+        if (obj[`${key}`] && typeof obj[`${key}`] === "object") {
+            remove(obj[`${key}`]);
+        } else if (obj[`${key}`] === null || obj[`${key}`] === "") {
+            delete obj[`${key}`];
+        }
+        if (typeof obj[`${key}`] === "object" && Object.keys(obj[`${key}`]).length === 0) {
+            delete obj[`${key}`];
+        }
+    });
 };
