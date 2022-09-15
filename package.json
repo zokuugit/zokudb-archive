@@ -2,7 +2,7 @@
   "name": "@zokuru/database",
   "version": "1.0.0",
   "description": "A package born of boredom",
-  "main": "index.js",
+  "main": "main.js",
   "keywords": [
     "json",
     "jsondb",
