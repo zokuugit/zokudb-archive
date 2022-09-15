@@ -5,7 +5,7 @@ class ZokuDB {
     constructor(options) {
 
         this.dbName = options["dbName"] ? "database" : options["dbName"];
-        this.dbFolder = options["dbFolder"] ? "zokuru": options["dbFolder"];
+        this.dbFolder = options["dbFolder"] ? "zokuru" : options["dbFolder"];
         this.noBlankData = options["noBlankData"] ? (typeof options["noBlankData"] === "boolean" ? options["noBlankData"] : false) : false;
         this.readable = options["readable"] ? (typeof options["readable"] === "boolean" ? true : false) : false;
         this.message = {
