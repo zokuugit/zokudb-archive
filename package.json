@@ -1,6 +1,6 @@
 {
   "name": "@zokuru/database",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A package born of boredom",
   "main": "main.js",
   "keywords": [
