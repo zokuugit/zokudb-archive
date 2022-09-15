@@ -1,6 +1,5 @@
 const functions = require("./functions.js");
-const langs = ["en"];
-const fs = require("fs");
+const fs = require("node:fs");
 
 class ZokuDB {
   constructor(options) {
@@ -9,8 +8,13 @@ class ZokuDB {
     this.dbFolder = options["dbFolder"];
     this.noBlankData = options["noBlankData"] ? (typeof options["noBlankData"] === "boolean" ? options["noBlankData"] : false) : false;
     this.readable = options["readable"] ? (typeof options["readable"] === "boolean" ? true : false) : false;
-    this.lang = options["language"] ? (langs.includes(options["language"].toLowerCase()) ? options["language"].toLowerCase() : "en") : "en";
-    this.message = require(`./language/${this.lang.toLowerCase()}.json`);
+    this.message = {
+      "errors": {
+        "blankName": "Please give me a database name.",
+        "blankData": "Please give me a data.",
+        "blankNumber": "Please give me a number." 
+      }
+    };
 
     functions.fetchFiles(this.dbFolder, this.dbName);
   }
