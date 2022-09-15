@@ -9,6 +9,14 @@ You need to import `ZokuDB` from this package
 ```js
 const { ZokuDB } = require("@zokuru/database");
 ```
+Now, let's setup your database
+```js
+const database = new ZokuDB({
+  dbFolder: "zokuru",
+  dbName: "database",
+  noBlankData: yes // Optional.
+});
+```
 And, here is a list of methods that can be used on `ZokuDB`:
 [null]
 
