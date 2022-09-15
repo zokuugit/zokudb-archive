@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require("node:fs");
 
 module.exports.set = function (path, value, obj) {
     var schema = obj;
@@ -21,48 +21,36 @@ module.exports.get = function(obj, ...data) {
 };
 
 module.exports.delete = function(obj, path) {
-
     if (!obj || !path) {
       return;
     }
-  
     if (typeof path === "string") {
       path = path.split(".");
     }
-  
     for (var i = 0; i < path.length - 1; i++) {
-  
       obj = obj[path[`${i}`]];
-  
       if (typeof obj === "undefined") {
         return;
       }
     }
-  
     delete obj[path.pop()];
 };
 
 module.exports.fetchFiles = function(dbFolder, dbName) {
-
     if (!fs.existsSync(dbFolder)){
-
         fs.mkdirSync(dbFolder);
         if(!fs.existsSync(`./${dbFolder}/${dbName}.json`)) {
             fs.writeFileSync(`./${dbFolder}/${dbName}.json`, "{}");
             return;
         }
-
     } else {
         if(!fs.existsSync(`./${dbFolder}/${dbName}.json`)) {
             fs.writeFileSync(`./${dbFolder}/${dbName}.json`, "{}");
         }
-
     }
-
 };
 
 module.exports.removeEmptyData = function (obj) {
-
   var remove = function(obj) {
     Object.keys(obj).forEach(function(key) {
       if (obj[`${key}`] && typeof obj[`${key}`] === "object") { 
@@ -86,5 +74,4 @@ module.exports.removeEmptyData = function (obj) {
       delete obj[`${key}`];
     }
   });
-
 };
