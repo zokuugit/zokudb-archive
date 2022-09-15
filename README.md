@@ -1,4 +1,4 @@
-# [✨] Zokuru Database
+# [✨] Zokuru Archive
 A project born out of boredom
 
 ## [💫] What is the function of this package?
