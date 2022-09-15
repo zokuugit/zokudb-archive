@@ -14,7 +14,7 @@ Now, let's setup your database
 const database = new ZokuDB({
   dbFolder: "zokuru",
   dbName: "database",
-  noBlankData: true // Optional.
+  noBlankData: true, // Optional.
   readable: true // Optional.
 });
 ```
