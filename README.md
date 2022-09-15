@@ -14,9 +14,13 @@ Now, let's setup your database
 const database = new ZokuDB({
   dbFolder: "zokuru",
   dbName: "database",
-  noBlankData: yes // Optional.
+  noBlankData: true // Optional.
+  readable: true // Optional.
 });
 ```
+> `dbFolder` is the name of the folder to store your database files, and `dbName` is the name of the database file.
+From the above example, I created a database with a folder named "zokuru", and a file named "database"
+This will create a new (or existing) database file with a directory `./zokuru/database.json`
 And, here is a list of methods that can be used on `ZokuDB`:
 [null]
 
