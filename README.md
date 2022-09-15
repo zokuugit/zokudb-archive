@@ -23,8 +23,7 @@ const database = new ZokuDB({
 From the above example, I created a database with a folder named "zokuru", and a file named "database"
 This will create a new (or existing) database file with a directory `./zokuru/database.json`
 
-And, here is a list of methods that can be used on `ZokuDB`:
-[null]
+This package is more or less similar to [quick.db](https://npmjs.com/package/quick.db), it also supports `set`, `get`, `has`, `fetch`, `delete` methods and so on.
 
 # [☁️] Install this package
 * I don't know how to register this package to npm yet, let me know if you know how
